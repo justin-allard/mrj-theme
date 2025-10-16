@@ -20,3 +20,11 @@ if ($api) {
 //    $state = $myUpdateChecker->getUpdateState();
 //    echo '<pre>'; print_r($state); echo '</pre>';
 //});
+
+
+
+
+//Add style.css to site
+function mrj_theme_enqueue_styles() {
+    wp_enqueue_style( 'mrj-theme-style', get_stylesheet_uri() );
+}

@@ -59,3 +59,15 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
 .more-link {
 	display: block;
 }
+
+
+/* Sticky Header */
+/*Sticky Header*/
+header.wp-block-template-part{
+  position: sticky;
+  top: 0; /* This makes the header stick to the very top of the viewport */
+  background-color: #ffffff; /* Example background color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  z-index: 1000; /* Ensures the header stays above other content */
+  width: 100%; /* Ensures the header spans the full width */
+}
