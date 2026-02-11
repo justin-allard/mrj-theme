@@ -31,17 +31,18 @@ function mrj_theme_enqueue_styles() {
 
 
 
-// Schedule daily ping on activation
-register_activation_hook(__FILE__, function () {
-    if (!wp_next_scheduled('mrjtheme_daily_ping')) {
-        wp_schedule_event(time(), 'daily', 'mrjtheme_daily_ping');
+// functions.php (theme)
+add_action( 'after_switch_theme', function () {
+    if ( ! wp_next_scheduled( MRJ_PING_HOOK ) ) {
+        wp_schedule_event( current_time( 'timestamp' ), 'daily', MRJ_PING_HOOK );
     }
 });
 
-// Clear scheduled event on deactivation
-register_deactivation_hook(__FILE__, function () {
-    wp_clear_scheduled_hook('mrjtheme_daily_ping');
+add_action( 'switch_theme', function () {
+    wp_clear_scheduled_hook( MRJ_PING_HOOK );
+    wp_clear_scheduled_hook( MRJ_PING_RETRY_HOOK );
 });
+
 
 // Daily ping callback
 add_action('mrjtheme_daily_ping', function () {
