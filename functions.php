@@ -30,7 +30,6 @@ function mrj_theme_enqueue_styles() {
 }
 
 
-<?php
 define( 'MRJ_PING_HOOK', 'mrjtheme_daily_ping' );
 
 /**
